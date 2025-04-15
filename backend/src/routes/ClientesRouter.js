@@ -3,16 +3,16 @@ import ClientesController from "../controllers/ClientesController.js";
 
 const router = express.Router()
 
-router.post("/clients/create", ClientesController.create)
+router.post("/clientes/create", ClientesController.create)
 
-router.get("/clients", ClientesController.getAll)
+router.get("/clientes", ClientesController.getAll)
 
-router.get("/clients/query", ClientesController.getByParams)
+router.get("/clientes/query", ClientesController.getByParams)
 
-router.get("/clients/:id", ClientesController.getById)
+router.get("/clientes/:id", ClientesController.getById)
 
-router.put("/clients/update", ClientesController.update)
+router.put("/clientes/update/:id", ClientesController.update)
 
-router.delete("/clients/delete/:id", ClientesController.delete)
+router.delete("/clientes/delete/:id", ClientesController.delete)
 
 export default router
