@@ -36,6 +36,6 @@ const LanchesSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const ProdutosModel = mongoose.model("Lanches", LanchesSchema)
+const LanchesModel = mongoose.model("Lanches", LanchesSchema)
 
-export default ProdutosModel
+export default LanchesModel
