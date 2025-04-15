@@ -41,6 +41,6 @@ const ClienteSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const ClienteModel = mongoose.model("Clientes", ClienteSchema)
+const ClientesModel = mongoose.model("Clientes", ClienteSchema)
 
-export default ClienteModel
+export default ClientesModel

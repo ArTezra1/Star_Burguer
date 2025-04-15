@@ -43,7 +43,7 @@ class ServicesController{
     }
 
     async getById(req, res, next){
-        const { id } = req.params.id
+        const { id } = req.params
 
         try {
             if(id && mongoose.Types.ObjectId.isValid(id)){
@@ -79,7 +79,7 @@ class ServicesController{
     }
     
     async update(req, res, next){
-        const { id } = req.params.id
+        const { id } = req.params
         const { newRegister } = req.body
         
         try {
@@ -104,7 +104,7 @@ class ServicesController{
     }
 
     async delete(req, res, next){
-        const { id } = req.params.id
+        const { id } = req.params
 
         try {
             if(id && mongoose.Types.ObjectId.isValid(id)){

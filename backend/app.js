@@ -1,4 +1,5 @@
 import express from "express"
+import Router from "./src/routes"
 import https2 from "http2"
 import path from "path"
 import fs from "fs"
@@ -16,6 +17,8 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }))
+
+Router(app)
 
 app.listen(4000, ()=>{
     console.log("Servidor rodando na porta 4000")
