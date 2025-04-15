@@ -1,5 +1,6 @@
 import express from "express"
-import Router from "./src/routes"
+import Router from "./src/routes/index.js"
+import connectDB from "./src/db/db.js"
 import https2 from "http2"
 import path from "path"
 import fs from "fs"
@@ -19,6 +20,8 @@ app.use(cors({
 }))
 
 Router(app)
+
+connectDB()
 
 app.listen(4000, ()=>{
     console.log("Servidor rodando na porta 4000")

@@ -1,9 +1,9 @@
-import clientes from "./ClientesRouter.js";
+import clientes from "./ClientesRouter.js"
 
-const Router = (app) =>{
-    app.use("/api", ()=>{
-        res.status(200).send("api rodando")
-    }, clientes)
-}
+const Routes = (app) => {
+    app.route("/").get((req, res) => res.status(200).send("Curso de Node.js"));
+  
+    app.use(clientes);
+};
 
-export default Router
+export default Routes

@@ -14,7 +14,7 @@ const ClienteSchema = new mongoose.Schema({
         type: String,
         required: [true, "Por favor insira a senha corretamente."],
         minLength: [6, "A senha deve ter no mínimo 6 caracteres."],
-        maXLength: [12, "A senha deve ter no máximo 12 caracteres."]
+        maxLength: [12, "A senha deve ter no máximo 12 caracteres."]
     },
     telefone:{
         type: String,
@@ -25,9 +25,8 @@ const ClienteSchema = new mongoose.Schema({
     },
     endereco:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "enderecos",
-        required: [true, "Por favor insira o endereço corretamente."],
-        default: ""
+        ref: "Enderecos",
+        default: null
     },
     role:{
         type: String,

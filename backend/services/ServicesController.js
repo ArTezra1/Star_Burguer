@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import filterRequest from "../src/middlewares/filterRequest.js"
+// import filterRequest from "../src/middlewares/filterRequest.js"
 
 class ServicesController{
     constructor(model){
@@ -67,9 +67,9 @@ class ServicesController{
         const { params } = req.query
         
         try {
-            const search = await filterRequest(params)
+            // const search = await filterRequest(params)
 
-            req.result = this.model.find(search)
+            // req.result = this.model.find(search)
 
             return res.status(200).json(req.result)
             
