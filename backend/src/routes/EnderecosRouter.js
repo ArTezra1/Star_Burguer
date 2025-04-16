@@ -1,18 +1,20 @@
 import express from "express"
 import EnderecosController from "../controllers/EnderecosController.js";
+import CheckAdmin from "../middlewares/ChechAdmin.js";
+import CheckToken from "../middlewares/CheckToken.js";
 
 const router = express.Router()
 
-router.post("/enderecos/create", EnderecosController.create)
+router.post("/enderecos/create", CheckToken, EnderecosController.create)
 
-router.get("/enderecos", EnderecosController.getAll)
+router.get("/enderecos", CheckAdmin, CheckToken, EnderecosController.getAll)
 
-router.get("/enderecos/query", EnderecosController.getByParams)
+router.get("/enderecos/query", CheckAdmin, CheckToken, EnderecosController.getByParams)
 
-router.get("/enderecos/:id", EnderecosController.getById)
+router.get("/enderecos/:id", CheckToken, EnderecosController.getById)
 
-router.put("/enderecos/update/:id", EnderecosController.update)
+router.put("/enderecos/update/:id", CheckToken, EnderecosController.update)
 
-router.delete("/enderecos/delete/:id", EnderecosController.delete)
+router.delete("/enderecos/delete/:id", CheckToken, EnderecosController.delete)
 
 export default router

@@ -1,20 +1,23 @@
 import express from "express"
 import ClientesController from "../controllers/ClientesController.js";
 
+import CheckAdmin from "../middlewares/ChechAdmin.js"
+import CheckToken from "../middlewares/CheckToken.js"
+
 const router = express.Router()
 
 router.post("/signup", ClientesController.signUp)
 
 router.post("/login", ClientesController.login)
 
-router.get("/clientes", ClientesController.getAll)
+router.get("/clientes", CheckAdmin, CheckToken, ClientesController.getAll)
 
-router.get("/clientes/query", ClientesController.getByParams)
+router.get("/clientes/query", CheckAdmin, CheckToken, ClientesController.getByParams)
 
-router.get("/clientes/:id", ClientesController.getById)
+router.get("/clientes/:id", CheckAdmin, CheckToken, ClientesController.getById)
 
-router.put("/clientes/update/:id", ClientesController.update)
+router.put("/clientes/update/:id", CheckAdmin, CheckToken, ClientesController.update)
 
-router.delete("/clientes/delete/:id", ClientesController.delete)
+router.delete("/clientes/delete/:id", CheckAdmin, CheckToken, ClientesController.delete)
 
 export default router
