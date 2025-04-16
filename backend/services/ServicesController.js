@@ -1,16 +1,16 @@
 import mongoose from "mongoose"
 // import filterRequest from "../src/middlewares/filterRequest.js"
 
-class ServicesController{
-    constructor(model){
+class ServicesController {
+    constructor(model) {
         this.model = model
     }
 
-    async create(req, res, next){
+    async create(req, res, next) {
         try {
             const newRegister = await this.model.create(req.body)
 
-            if(newRegister){
+            if (newRegister) {
                 return res.status(201).json({
                     message: "Registro criado com sucesso."
                 })
@@ -25,11 +25,11 @@ class ServicesController{
         }
     }
 
-    async getAll(req, res, next){
+    async getAll(req, res, next) {
         try {
             const registers = await this.model.find({})
 
-            if(registers.length > 0){
+            if (registers.length > 0) {
                 return res.status(200).json(registers)
             }
 
@@ -42,14 +42,14 @@ class ServicesController{
         }
     }
 
-    async getById(req, res, next){
+    async getById(req, res, next) {
         const { id } = req.params
 
         try {
-            if(id && mongoose.Types.ObjectId.isValid(id)){
+            if (id && mongoose.Types.ObjectId.isValid(id)) {
                 const register = await this.model.findById(id)
 
-                if(register){
+                if (register) {
                     return res.status(200).json(register)
                 }
             }
@@ -63,35 +63,29 @@ class ServicesController{
         }
     }
 
-    async getByParams(req, res, next){
+    async getByParams(req, res, next) {
         const { params } = req.query
-        
+
         try {
             // const search = await filterRequest(params)
 
             // req.result = this.model.find(search)
 
             return res.status(200).json(req.result)
-            
+
         } catch (error) {
             next(error)
         }
     }
-    
-    async update(req, res, next){
-        const { id } = req.params
-        const { newRegister } = req.body
-        
-        try {
 
-            if(id && mongoose.Types.ObjectId.isValid(id)){
-                const registerUpdate = await this.model.findByIdAndUpdate(id, newRegister)
-                
-                if(registerUpdate){
-                    return res.status(200).json({
-                        message: "Registro atualizado com sucesso."
-                    })
-                }
+    async update(req, res, next) {
+        try {
+            const registerUpdate = await this.model.findByIdAndUpdate(req.params.id, req.body)
+
+            if (registerUpdate) {
+                return res.status(200).json({
+                    message: "Registro atualizado com sucesso."
+                })
             }
 
             return res.status(404).json({
@@ -103,14 +97,14 @@ class ServicesController{
         }
     }
 
-    async delete(req, res, next){
+    async delete(req, res, next) {
         const { id } = req.params
 
         try {
-            if(id && mongoose.Types.ObjectId.isValid(id)){
+            if (id && mongoose.Types.ObjectId.isValid(id)) {
                 const registerDeleted = await this.model.findByIdAndDelete(id)
 
-                if(registerDeleted){
+                if (registerDeleted) {
                     return res.status(200).json({
                         message: "Registro deletado com sucesso."
                     })
