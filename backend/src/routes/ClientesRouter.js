@@ -3,7 +3,9 @@ import ClientesController from "../controllers/ClientesController.js";
 
 const router = express.Router()
 
-router.post("/clientes/create", ClientesController.create)
+router.post("/signup", ClientesController.signUp)
+
+router.post("/login", ClientesController.login)
 
 router.get("/clientes", ClientesController.getAll)
 

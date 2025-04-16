@@ -13,8 +13,7 @@ const ClienteSchema = new mongoose.Schema({
     senha:{
         type: String,
         required: [true, "Por favor insira a senha corretamente."],
-        minLength: [6, "A senha deve ter no mínimo 6 caracteres."],
-        maxLength: [12, "A senha deve ter no máximo 12 caracteres."]
+        minLength: [6, "A senha deve ter no mínimo 6 caracteres."]
     },
     telefone:{
         type: String,
