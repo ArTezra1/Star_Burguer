@@ -30,18 +30,10 @@ const PedidosSchema = new mongoose.Schema({
                 ref: "Combos",
                 autopopulate: { select: "nome tipo" }
             },
-            nome: {
-                type: String,
-                required: true
-            },
             quantidade: {
                 type: Number,
                 required: true,
                 min: 1
-            },
-            preco_unitario: {
-                type: Number,
-                required: true
             }
         }
     ],

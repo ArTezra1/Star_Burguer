@@ -6,7 +6,7 @@ import CheckAdmin from "../middlewares/ChechAdmin.js";
 
 const router = express.Router()
 
-router.post("/pedidos/create", CheckToken, PedidosController.create)
+router.post("/pedidos/create", CheckToken, PedidosController.createOrder)
 
 router.get("/pedidos", CheckAdmin, CheckToken, PedidosController.getAll)
 

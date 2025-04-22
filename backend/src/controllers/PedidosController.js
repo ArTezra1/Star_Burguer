@@ -5,8 +5,8 @@ class PedidosController {
 
     }
 
-    static async create(req, res, next) {
-        PedidosServices.create(req, res, next)
+    static async createOrder(req, res, next) {
+        PedidosServices.createOrder(req, res, next)
     }
 
     static async getAll(req, res, next) {
