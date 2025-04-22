@@ -5,7 +5,7 @@ import CheckToken from "../middlewares/CheckToken.js";
 
 const router = express.Router()
 
-router.post("/enderecos/create", CheckToken, EnderecosController.create)
+router.post("/enderecos/create", CheckToken, EnderecosController.createAddress)
 
 router.get("/enderecos", CheckAdmin, CheckToken, EnderecosController.getAll)
 

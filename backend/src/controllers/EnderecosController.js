@@ -5,8 +5,8 @@ class EnderecosController{
         
     }
 
-    static async create(req, res, next) {
-        EnderecosServices.create(req, res, next)
+    static async createAddress(req, res, next) {
+        EnderecosServices.createAddress(req, res, next)
     }
 
     static async getAll(req, res, next) {
