@@ -18,7 +18,7 @@ const initSocket = (server) =>{
                 status: novoStatus
             })
 
-            const pedido = await PedidosController.getAll()
+            const pedido = await PedidosController.getById(pedidoId)
 
             io.emit("request_updated", pedido)
         })
