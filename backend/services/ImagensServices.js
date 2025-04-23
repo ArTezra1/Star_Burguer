@@ -1,9 +1,7 @@
 import ImagensModel from "../src/models/ImagensModel.js"
 import ServicesController from "./ServicesController.js"
 
-import multer from "multer"
-
-import Upload from "../src/config/multer.js"
+import fs from "fs"
 
 class ImagensServices extends ServicesController{
     constructor(){
@@ -33,6 +31,28 @@ class ImagensServices extends ServicesController{
 
             return res.status(401).json({
                 message: "Erro ao salvar imagem."
+            })
+
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    async deleteImage(req, res, next){
+        try {
+            
+            const imagemDeletada = await ImagensModel.findByIdAndDelete(req.params.id)
+
+            if(imagemDeletada){
+                fs.unlinkSync(imagemDeletada.src)
+
+                return res.status(200).json({
+                    message: "Imagem deletada com sucesso."
+                })
+            }
+
+            return res.status(400).json({
+                meddage: "Erro ao deletar imagem."
             })
 
         } catch (error) {

@@ -26,7 +26,7 @@ class ImagensController{
     }
 
     static async delete(req, res, next) {
-        await ImagensServices.delete(req, res, next)
+        await ImagensServices.deleteImage(req, res, next)
     }
 }
 

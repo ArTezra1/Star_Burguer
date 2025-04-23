@@ -8,7 +8,7 @@ import Upload from "../config/multer.js";
 
 const router = express.Router()
 
-router.post("/imagens/upload", Upload.single("src") , ImagensController.createImage)
+router.post("/imagens/upload", Upload.single("src"), CheckAdmin, CheckToken, ImagensController.createImage)
 
 router.get("/imagens", ImagensController.getAll)
 
