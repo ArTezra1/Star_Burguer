@@ -1,6 +1,6 @@
 import ImagensServices from "../../services/ImagensServices.js";
 
-class ImagensController extends ImagensServices {
+class ImagensController{
     constructor() {
 
     }
