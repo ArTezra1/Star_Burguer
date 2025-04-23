@@ -4,9 +4,11 @@ import ImagensController from "../controllers/ImagensController.js";
 import CheckAdmin from "../middlewares/ChechAdmin.js"
 import CheckToken from "../middlewares/CheckToken.js"
 
+import Upload from "../config/multer.js";
+
 const router = express.Router()
 
-router.post("/imagens/create", CheckAdmin, CheckToken, ImagensController.createImage)
+router.post("/imagens/upload", Upload.single("file") ,CheckAdmin, CheckToken, ImagensController.createImage)
 
 router.get("/imagens", ImagensController.getAll)
 
