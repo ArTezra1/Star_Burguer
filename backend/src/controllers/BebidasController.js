@@ -9,6 +9,10 @@ class BebidasController{
         BebidasServices.create(req, res, next)
     }
 
+    static async createVarios(req, res, next){
+        BebidasServices.createVarios(req, res, next)
+    }
+
     static async getAll(req, res, next){
         BebidasServices.getAll(req, res, next)
     }

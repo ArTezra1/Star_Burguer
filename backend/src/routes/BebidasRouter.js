@@ -8,6 +8,8 @@ const router = express.Router()
 
 router.post("/bebidas/create", CheckAdmin, CheckToken, BebidasController.create)
 
+router.post("/bebidas/create/varios", BebidasController.createVarios)
+
 router.get("/bebidas", BebidasController.getAll)
 
 router.get("/bebidas/query", BebidasController.getByParams)
