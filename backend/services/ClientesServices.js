@@ -24,7 +24,7 @@ class ClientesServices extends ServicesController {
                     })
                 }
 
-                const validPassword = bcrypt.compare(senha, user.senha)
+                const validPassword = await bcrypt.compare(senha, user.senha)
 
                 if(!validPassword){
                     return res.status(401).json({
@@ -43,6 +43,7 @@ class ClientesServices extends ServicesController {
                 return res.json({
                     token,
                     user:{
+                        id: user._id,
                         nome: user.nome,
                         role: user.role
                     }

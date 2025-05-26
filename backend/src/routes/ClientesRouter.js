@@ -14,7 +14,7 @@ router.get("/clientes", CheckAdmin, CheckToken, ClientesController.getAll)
 
 router.get("/clientes/query", CheckAdmin, CheckToken, ClientesController.getByParams)
 
-router.get("/clientes/:id", CheckAdmin, CheckToken, ClientesController.getById)
+router.get("/clientes/:id", CheckToken, ClientesController.getById)
 
 router.put("/clientes/update/:id", CheckAdmin, CheckToken, ClientesController.update)
 

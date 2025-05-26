@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #D93D76, #224e36);
+      height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 90vw;
+      background: white;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+    }
+
+    .sidebar {
+      width: 30%;
+      background: #f7f7f7;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    .sidebar img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .sidebar h3 {
+      margin: 10px 0;
+    }
+
+    .content {
+      width: 100%;
+      padding: 30px;
+    }
+
+    .content h2 {
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 15px;
+    }
+
+    .form-group div {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .update {
+      background-color: #165946;
+      color: white;
+    }
+
+    .cancel {
+      background-color: #bfbfbf;
+    }
+
+    nav {
+      background: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 1px solid black;
+    }
+
+    nav ul li {
+      width: 100%;
+      background-color: lightgray;
+      padding: 4px 8px;
+      border-radius: 10px;
+    }
+
+    nav ul li:hover {
+      background-color: darkgray;
+      transition: 0.3s ease;
+    }
+
+    nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    hr {
+      width: 100%;
+      border: 1px solid black;
+    }
+
+    h4 {
+      margin-top: 10px;
+    }
+
+    #deslogar{
+      background-color: red;
+      padding: 8px 20px;
+      border: 1px solid darkred;
+      border-radius: 10px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <div>
+        <img src="../../image/profile.png" alt="Foto de perfil">
+        <h4>Você no perfil</h4>
+      </div>
+      <hr>
+      <div>
+        <h3>Menu</h3>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="">Pedidos</a></li>
+            <li><a href="">Adicionar produtos</a></li>
+            <button id="deslogar">deslogar</button>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="content">
+      <h2>Perfil</h2>
+      <form id="accountForm">
+        <div class="form-group">
+          <div>
+            <label for="firstName">Nome</label>
+            <input type="text" id="nome" placeholder="nome">
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Digite aqui">
+          </div>
+          <div>
+            <label for="phone">Celular</label>
+            <input type="text" id="phone" placeholder="+11">
+          </div>
+        </div>
+        <div>
+          <label for="bio">Bio</label>
+          <textarea id="bio" placeholder="Bem vindo a nossa hamburgueria"></textarea>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="update">Atualizar</button>
+          <button type="button" class="cancel">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('accountForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Informações atualizadas com sucesso!');
+    });
+
+    document.querySelector('.cancel').addEventListener('click', function () {
+      if (confirm('Deseja cancelar as alterações?')) {
+        location.reload();
+      }
+    });
+  </script>
+
+  <script src="../../js/perfil.js"></script>
+
+</body>
+
+</html>

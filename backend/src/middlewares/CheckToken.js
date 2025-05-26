@@ -1,11 +1,19 @@
 import jsonwebtoken from "jsonwebtoken"
 
 export default function CheckToken(req, res, next){
-    const token = req.header("Authorization")
+    const header = req.header("Authorization")
 
-    if(!token){
+    if(!header){
         return res.status(401).json({
             message: "Acesso negado: é preciso do token."
+        })
+    }
+
+    const token = header.split(' ')[1]
+
+    if (!token) {
+        return res.status(401).json({
+            message: "Token mal formatado."
         })
     }
 
