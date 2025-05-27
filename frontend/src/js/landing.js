@@ -6,6 +6,8 @@ const navLanches = document.getElementById("home-link-lanches");
 const navCombos = document.getElementById("home-link-combos");
 const navBebidas = document.getElementById("home-link-bebidas");
 
+const cardapioTittle = document.getElementById("cardapio-tittle")
+
 const sectionLanches = document.getElementById("section-lanches");
 const sectionCombos = document.getElementById("section-combos");
 const sectionBebidas = document.getElementById("section-bebidas");
@@ -24,18 +26,24 @@ if (token) {
     descProfile.style.color = "red";
 }
 
-function generateCard({ nome, tipo, sabor, ingredientes, estoque, preco_unitario, imgSrc }) {
+function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_unitario, imgSrc }) {
     return `
         <div class="burger-card">
-          <div class="burger-image">
-            <img src="${imgSrc}" alt="${nome}"/>
-          </div>
-          <h3>${nome}</h3>
-          <p>${sabor}</p>
-          <div class="price-container">
-            <span>R$ ${preco_unitario.toFixed(2)}</span>
-            <button class="btn_add">Add ao carrinho</button>
-          </div>
+            <div class="burger-image">
+                <img src="${imgSrc}" alt="${nome}" />
+            </div>
+            <h3>${nome}</h3>
+            <p>${sabor}</p>
+            <div class="price-container">
+                <span>R$ ${preco_unitario.toFixed(2)}</span>
+                <button 
+                class="btn_add"
+                data-id="${_id}" 
+                data-tipo="${tipo}"
+                >
+                Add ao carrinho
+                </button>
+            </div>
         </div>
     `;
 }
@@ -84,17 +92,33 @@ const getDados = async (section = "lanches") => {
 };
 
 navLanches.addEventListener("click", () => {
+    setActive(navLanches, "Lanches")
     mostrarApenas(sectionLanches);
     getDados("lanches");
 });
 navCombos.addEventListener("click", () => {
+    setActive(navCombos, "Combos")
     mostrarApenas(sectionCombos);
     getDados("combos");
 });
 navBebidas.addEventListener("click", () => {
+    setActive(navBebidas, "Bebidas")
     mostrarApenas(sectionBebidas);
     getDados("bebidas");
 });
+
+function setActive(navButton, tittle) {
+    const place = [navLanches, navCombos, navBebidas]
+
+    place.forEach((element) => {
+        if (element !== navButton) {
+            element.removeAttribute("class", "cat-active")
+        }
+    })
+
+    cardapioTittle.innerText = tittle
+    navButton.setAttribute("class", "cat-active")
+}
 
 mostrarApenas(sectionLanches);
 getDados("lanches");

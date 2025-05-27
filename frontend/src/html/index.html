@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Star Burguer</title>
   <link rel="stylesheet" href="../css/landing.css" />
   <script src="../js/landing.js" defer></script>
+  <script src="../js/carrinho.js" defer type="module"></script>
+  <script src="../js/carrinhoCard.js" defer type="module"></script>
 </head>
+
 <body>
   <div class="container">
     <aside class="sidebar">
@@ -18,25 +22,35 @@
         </a>
       </div>
 
-      <div>
-        carrinho link
+      <hr>
+
+      <div id="carrinho">
+        <h4>Carrinho</h4>
+        <div id="carrinho-items">
+          <p>Itens no carrinho:</p><span id="total-itens"></span>
+        </div>
+        <div id="carrinho-total">
+          Total: R$ 0.00
+        </div>
+        <a href="../html/carrinho/index.html"><button>Ver Carrinho</button></a>
       </div>
+
 
       <hr>
 
       <nav class="menu">
         <h3>Categorias</h3>
         <ul>
-          <li id="home-link-lanches">
-            <img src="https://img.icons8.com/color/48/hamburger.png"/>
+          <li id="home-link-lanches" class="cat-active">
+            <img src="https://img.icons8.com/color/48/hamburger.png" />
             <span>Lanches</span>
           </li>
           <li id="home-link-combos">
-            <img src="https://img.icons8.com/color/48/french-fries.png"/>
+            <img src="https://img.icons8.com/color/48/french-fries.png" />
             <span>Combos</span>
           </li>
           <li id="home-link-bebidas">
-            <img src="https://img.icons8.com/color/48/soda.png"/>
+            <img src="https://img.icons8.com/color/48/soda.png" />
             <span>Bebidas</span>
           </li>
         </ul>
@@ -54,18 +68,21 @@
         </div>
       </header>
 
-      <div style="height: 80px;"></div> <!-- Espaçamento extra -->
+      <div class="cardapio">
+        <p>Conheça nosso cardápio de <span id="cardapio-tittle">Lanches</span></p>
+      </div>
 
       <section class="burger-grid" id="section-lanches">
-        
+
       </section>
       <section class="burger-grid" id="section-combos">
-        
+
       </section>
       <section class="burger-grid" id="section-bebidas">
-        
+
       </section>
     </main>
   </div>
 </body>
+
 </html>
