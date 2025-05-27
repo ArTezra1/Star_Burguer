@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #fff8f0;
+  color: #3e2723;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #8d6e63;
+}
+
+.kanban {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  background-color: #fff3e0;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+  max-width: 280px;
+}
+
+.column h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: #ffcc80;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: #5d4037;
+}
+
+.card {
+  background-color: #fff8e1;
+  border-left: 5px solid #ff9800;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+  margin: 0.2rem 0;
+}
+
+.botoes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.card button {
+  flex: 1;
+  padding: 6px 10px;
+  border: none;
+  background-color: #d84315;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.card button:hover {
+  background-color: #bf360c;
+}
+
+/* Cores por status */
+#recebido .card {
+  background-color: #fff8e1;
+  border-left-color: #ff9800;
+}
+
+#preparando .card {
+  background-color: #ffe0b2;
+  border-left-color: #fb8c00;
+}
+
+#pronto .card {
+  background-color: #dcedc8;
+  border-left-color: #689f38;
+}
+
+#entregue .card {
+  background-color: #eeeeee;
+  border-left-color: #8d6e63;
+}
+
+.sidebar {
+  width: 300px;
+  background: #f7f7f7;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.sidebar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar h3 {
+  margin: 10px 0;
+}
+
+nav {
+  background: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+nav ul li {
+  width: 100%;
+  background-color: lightgray;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+nav ul li:hover {
+  background-color: darkgray;
+  transition: 0.3s ease;
+}
+
+nav ul li a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid black;
+}
+
+h4 {
+  margin-top: 10px;
+}
+
+#deslogar {
+  background-color: red;
+  padding: 8px 20px;
+  border: 1px solid darkred;
+  border-radius: 10px;
+  color: white;
+}
