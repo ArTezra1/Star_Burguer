@@ -10,13 +10,16 @@ let pedido = {
     total: 0
 };
 
-const carrinho = getCarrinho()
-const total = calcularTotal()
+function mostrarDados(){
+    const carrinho = getCarrinho()
+    const total = calcularTotal()
+    
+    carrinhoTotal.innerHTML = `Total: R$${total.toFixed(2)}`
+    totalItens.innerHTML = `${carrinho.length}`
+}
 
-console.log(carrinho, total, carrinho.length)
+mostrarDados()
 
-carrinhoTotal.innerHTML = `Total: R$${total.toFixed(2)}`
-totalItens.innerHTML = `${carrinho.length}`
 
 document.addEventListener("click", (event) => {
     if(event.target.classList.contains("btn_add")){
@@ -49,5 +52,6 @@ document.addEventListener("click", (event) => {
         pedido.total += preco;
 
         adicionarAoCarrinho(produto)
+        mostrarDados()
     }
 });

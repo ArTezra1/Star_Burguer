@@ -2,7 +2,13 @@ const CARRINHO_KEY = "carrinho"
 
 function getCarrinho() {
     const carrinho = localStorage.getItem(CARRINHO_KEY);
-    return carrinho ? JSON.parse(carrinho) : [];
+    try {
+        const parsed = JSON.parse(carrinho)
+        return Array.isArray(parsed) ? parsed : []
+    } catch {
+        localStorage.removeItem(CARRINHO_KEY)
+        return []
+    }
 }
 
 function saveCarrinho(carrinho) {
@@ -21,7 +27,6 @@ function adicionarAoCarrinho(item) {
     }
 
     saveCarrinho(carrinho)
-    alert(`Item "${item.nome}" adicionado ao carrinho.`)
 }
 
 function removerDoCarrinho(itemId) {
@@ -56,4 +61,4 @@ function limparCarrinho() {
     localStorage.removeItem(CARRINHO_KEY)
 }
 
-export { adicionarAoCarrinho, getCarrinho, calcularTotal }
+export { adicionarAoCarrinho, removerDoCarrinho, limparCarrinho, getCarrinho, calcularTotal, saveCarrinho }

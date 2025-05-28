@@ -53,7 +53,7 @@ function mostrarApenas(section) {
     sectionCombos.style.display = "none";
     sectionBebidas.style.display = "none";
 
-    section.style.display = "grid"; // ou block, conforme seu CSS
+    section.style.display = "grid"; 
 }
 
 const getDados = async (section = "lanches") => {

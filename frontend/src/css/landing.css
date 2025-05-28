@@ -186,6 +186,25 @@ a{
   gap: 4px;
 }
 
+#carrinho a button{
+  padding: 4px 8px;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  margin-top: 4px;
+  background: #e91e63;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+#carrinho a button:hover{
+  transform: scale(1.05);
+  background: #ab1648;
+  cursor: pointer;
+}
+
 #total-itens{
   background-color: #e91e63;
   border-radius: 100%;
