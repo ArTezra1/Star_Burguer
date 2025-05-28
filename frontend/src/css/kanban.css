@@ -6,14 +6,16 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 1rem;
-  background-color: #fff8f0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(120deg, #224e36, #D93D76);
   color: #3e2723;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #8d6e63;
+  color: white;
 }
 
 .kanban {
@@ -21,6 +23,9 @@ h2 {
   gap: 1rem;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.148);
 }
 
 .column {

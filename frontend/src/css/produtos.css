@@ -1,27 +1,29 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: linear-gradient(120deg, #224e36, #D93D76);
 }
 
-h1{
-    margin-top: 24px;
+h1 {
+  margin-top: 24px;
 }
 
-.container{
-    display: flex;
-    width: 100vw;
-    background: gray;
-    padding: 18px;
+.container {
+  display: flex;
+  gap: 10px;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.353);
+  padding: 18px;
 }
 
 .sidebar {
@@ -102,51 +104,54 @@ h4 {
   color: white;
 }
 
-.section-forms{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+.section-forms {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
 }
 
-.form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    background: darkgray;
-    padding: 24px;
-    border-radius: 10px;
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  background: darkgray;
+  padding: 24px;
+  border-radius: 10px;
 }
 
-.form form{
-    background: lightgray;
-    padding: 24px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.form form {
+  background: lightgray;
+  padding: 24px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 12px;
 }
 
-.form form .form-group{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 8px;
+.form form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
 }
 
-.form form .form-group label{
-    font-size: 18px;
-    font-weight: 600;
+.form form .form-group label {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.form form .form-group input, textarea, select{
-    padding: 2px 0px;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 4px;
-    border: 1px solid black;
+.form form .form-group input,
+textarea,
+select {
+  padding: 2px 0px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+  border: 1px solid black;
 }
