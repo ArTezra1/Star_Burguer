@@ -21,6 +21,10 @@ const BebidasSchema = new mongoose.Schema({
         },
         required: [true, "Por favor insira o tipo da bebida!"]
     },
+    imageSrc:{
+        type: String,
+        required: [true, "Por favor insira a imagem da bebida!"]
+    },
     estoque:{
         type: Number,
         required: [true, "Por favor insira a quantidade estoque."],

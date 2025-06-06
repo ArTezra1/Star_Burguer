@@ -1,28 +1,20 @@
 import mongoose from "mongoose"
-// import filterRequest from "../src/middlewares/filterRequest.js"
+import path from "path"
+import fs from "fs"
 
 class ServicesController {
     constructor(model) {
         this.model = model
+        this.imageField = "imageSrc"
+        this.imageFolder = "images"
     }
 
-    async create(req, res, next) {
-        try {
-            const newRegister = await this.model.create(req.body)
-
-            if (newRegister) {
-                return res.status(201).json({
-                    message: "Registro criado com sucesso."
-                })
-            }
-
-            return res.status(400).json({
-                message: "Erro ao criar registro"
-            })
-
-        } catch (error) {
-            next(error)
+    async create(data, file) {
+        if (file && file.filename) {
+            data[this.imageField] = `${this.imageFolder}/${file.filename}`
         }
+
+        return await this.model.create(data)
     }
 
     async getAll(req, res, next) {
@@ -97,27 +89,34 @@ class ServicesController {
         }
     }
 
-    async delete(req, res, next) {
-        const { id } = req.params
-
-        try {
-            if (id && mongoose.Types.ObjectId.isValid(id)) {
-                const registerDeleted = await this.model.findByIdAndDelete(id)
-
-                if (registerDeleted) {
-                    return res.status(200).json({
-                        message: "Registro deletado com sucesso."
-                    })
-                }
-            }
-
-            return res.status(404).json({
-                message: "Registro não encontrado."
-            })
-
-        } catch (error) {
-            next(error)
+    async delete(id) {
+        if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+            throw new Error("ID inválido.")
         }
+
+        const item = await this.model.findById(id)
+
+        if (!item) {
+            throw new Error("Registro não encontrado.")
+        }
+
+        const imagePath = item[this.imageField]
+
+        if (imagePath) {
+            const fullPath = path.resolve(`.${imagePath}`)
+
+            try {
+                if (fs.existsSync(fullPath)) {
+                    fs.unlinkSync(fullPath)
+                }
+            } catch (error) {
+                console.warn("Erro ao deletar imagem:", error.message)
+            }
+        }
+
+        await this.model.findByIdAndDelete(id)
+
+        return true
     }
 }
 

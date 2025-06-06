@@ -13,7 +13,11 @@ const CombosSchema = new mongoose.Schema({
         },
         required: [true, "Por favor insira o tipo do Combo."]
     },
-    items:{
+    imageSrc: {
+        type: String,
+        required: [true, "Por favor insira a imagem do combo."]
+    },
+    items: {
         type: Array,
         required: [true, "Por favor insira os items do combo."],
         min: [2, "O mínimo de itens de um combo deve ser 2."]

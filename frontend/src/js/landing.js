@@ -26,11 +26,13 @@ if (token) {
     descProfile.style.color = "red";
 }
 
-function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_unitario, imgSrc }) {
+function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_unitario, imageSrc }) {
+    console.log(imageSrc)
     return `
         <div class="burger-card">
             <div class="burger-image">
-                <img src="${imgSrc}" alt="${nome}" />
+                <img src="../../../backend/${imageSrc}" alt="${nome}"
+                />
             </div>
             <h3>${nome}</h3>
             <p>${sabor}</p>

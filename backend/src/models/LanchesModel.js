@@ -5,14 +5,6 @@ const LanchesSchema = new mongoose.Schema({
         type: String,
         required: [true, "Por favor insira o Nome do lanche!"]
     },
-    tipo: {
-        type: String,
-        enum: {
-            values:["hamburguer", "batata", "pastel"],
-            message: "O lanche {VALUE} não é permitido."
-        }, 
-        required: [true, "Por favor insira o Tipo do lanche!"]
-    },
     sabor: {
         type: String,
         required: [true, "Por favor insira o Sabor do lanche!"]
@@ -21,6 +13,10 @@ const LanchesSchema = new mongoose.Schema({
         type: Array,
         required: [true, "Por favor insira os ingredientes do lanche."],
         min: [2, "O mínimo de ingredientes de um lanche deve ser 2."]
+    },
+    imageSrc:{
+        type: String,
+        required: [true, "Por favor insira a imagem do lanche."]
     },
     estoque:{
         type: Number,
