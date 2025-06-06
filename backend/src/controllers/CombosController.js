@@ -43,7 +43,7 @@ class CombosController {
         try {
             const { id } = req.params
 
-            await BebidasServices.delete(id)
+            await CombosServices.delete(id)
 
             res.status(200).send()
 
