@@ -11,6 +11,7 @@ const carrinho = getCarrinho()
 const menu = document.getElementById("menu")
 const totalView = document.getElementById("total")
 const deletarTudo = document.getElementById("delete-all")
+const finalizarCompra = document.getElementById("checkout-btn")
 
 deletarTudo.addEventListener("click", ()=>{
     if(confirm("Deseja limpar o seu carrinho?")){
@@ -91,3 +92,59 @@ function createCardOrder(item, index) {
 
     menu.appendChild(card)
 }
+
+class Pedido{
+    constructor(clienteId, enderecoId, items, total) {
+        this.clienteId = clienteId;
+        this.enderecoId = enderecoId;
+        this.items = items;
+        this.total = total;
+        this.status = "Recebido";
+    }
+}
+
+finalizarCompra.addEventListener("click", ()=>{
+    console.log(carrinho)
+    if(carrinho.length === 0){
+        alert("Seu carrinho está vazio, adicione itens para finalizar a compra.")
+        return
+    }
+
+    if(confirm("Deseja finalizar a compra?")){
+        const clienteId = localStorage.getItem("id")
+        const enderecoId = ""
+
+        if(!clienteId){
+            alert("Por favor, faça login e adicione um endereço antes de finalizar a compra.")
+            return
+        }
+
+        const items = carrinho.map(item => ({
+            [`${item.tipo}Id`]: item.id,
+            quantidade: item.quantidade
+        }))
+
+        const pedido = new Pedido(clienteId, enderecoId, items, total)
+
+        fetch("http://localhost:4000/pedidos/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify(pedido)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Pedido realizado com sucesso:", data);
+            alert("Pedido realizado com sucesso!");
+            limparCarrinho();
+            menu.innerHTML = '';
+            totalView.innerHTML = '0.00';
+        })
+        .catch(error => {
+            console.error("Erro ao realizar o pedido:", error);
+            alert("Ocorreu um erro ao realizar o pedido. Tente novamente.");
+        });
+    }
+})

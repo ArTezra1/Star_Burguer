@@ -64,7 +64,7 @@ btnLogin.addEventListener("click", async (event) => {
 
     if (deuCerto === true) {
         alert("Login realizado com sucesso!");
-        window.location.href = "/frontend/src/html/index.html";
+        window.location.href = "/html/index.html";
 
     } else {
         alert("Falha no login. Verifique seus dados.");

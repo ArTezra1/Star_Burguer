@@ -9,23 +9,22 @@ const PedidosSchema = new mongoose.Schema({
     },
     enderecoId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
         ref: "Enderecos",
         autopopulate: { select: "cep bairro rua numero complemento"  }
     },
     items: [
         {
-            lancheId:{
+            lanchesId:{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Lanches",
                 autopopulate: { select: "nome" }
             },
-            bebidaId: {
+            bebidasId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Bebidas",
                 autopopulate: { select: "marca sabor tipo" }
             },
-            comboId: {
+            combosId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Combos",
                 autopopulate: { select: "nome tipo" }

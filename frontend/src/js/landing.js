@@ -26,7 +26,7 @@ if (token) {
     descProfile.style.color = "red";
 }
 
-function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_unitario, imageSrc }) {
+function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_unitario, imageSrc }, tipoCall) {
     console.log(imageSrc)
     return `
         <div class="burger-card">
@@ -41,7 +41,7 @@ function generateCard({ _id, nome, tipo, sabor, ingredientes, estoque, preco_uni
                 <button 
                 class="btn_add"
                 data-id="${_id}" 
-                data-tipo="${tipo}"
+                data-tipo="${tipoCall}"
                 >
                 Add ao carrinho
                 </button>
@@ -68,6 +68,8 @@ const getDados = async (section = "lanches") => {
     const container = map[section];
     const url = section;
 
+    let tipoCall = section
+
     try {
         const response = await fetch(`http://localhost:4000/${url}`, {
             method: "GET",
@@ -84,7 +86,7 @@ const getDados = async (section = "lanches") => {
         container.innerHTML = '';
 
         data.forEach(item => {
-            const cardHTML = generateCard(item);
+            const cardHTML = generateCard(item, tipoCall);
             container.insertAdjacentHTML('beforeend', cardHTML);
         });
 

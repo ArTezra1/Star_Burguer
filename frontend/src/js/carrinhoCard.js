@@ -29,6 +29,7 @@ document.addEventListener("click", (event) => {
         const tipo = event.target.dataset.tipo;
 
         const nome = card.querySelector("h3").innerText;
+        const imagem = card.querySelector("img").src
         const sabor = card.querySelector("p").innerText;
         const preco = parseFloat(
             card.querySelector(".price-container span").innerText.replace("R$ ", "").trim()
@@ -39,10 +40,9 @@ document.addEventListener("click", (event) => {
             tipo,
             nome,
             sabor,
+            imagem,
             preco
         };
-
-        console.log(produto);
 
         pedido.items.push({
             [`${tipo}Id`]: id,
